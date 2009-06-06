@@ -1,0 +1,67 @@
+http://www.djangoproject.com/download/
+
+Installing MySQLdb in Leopard
+-----------------------
+http://www.mangoorange.com/2008/08/01/installing-python-mysqldb-122-on-mac-os-x/
+
+Step 1:
+  Download the latest MySQL for Python adapter from SourceForge.
+
+Step 2:
+  Extract your downloaded package by typing
+
+  $ tar xzvf MySQL-python-1.2.2.tar.gz
+
+Step 3:
+  Inside the folder, clean the package by typing
+
+  $ sudo python setup.py clean
+
+Step 4:
+  In the same folder, edit _mysql.c using your favourite text-editor
+
+  4a. Remove the following lines (37-39):
+
+  #ifndef uint
+  #define uint unsigned int
+  #endif
+
+  4b. Change the following:
+
+  uint port = MYSQL_PORT;
+  uint client_flag = 0;
+
+  to
+
+  unsigned int port = MYSQL_PORT;
+  unsigned int client_flag = 0;
+
+Step 5:
+  Create a symbolic link under lib to point to a sub-directory called mysql. This is where it looks for during compilation.
+
+  $ sudo ln -s /usr/local/mysql/lib /usr/local/mysql/lib/mysql
+
+Step 6:
+  Edit the setup_posix.py and change the following
+
+  mysql_config.path = "mysql_config"
+
+  to
+
+  mysql_config.path = "/usr/local/mysql/bin/mysql_config"
+
+Step 7:
+  In the same directory, rebuild your package (ignore the warnings that comes with it)
+
+  $ sudo python setup.py build
+
+Step 8:
+  Install the package and you are done.
+
+  $ sudo python setup.py install
+
+Step 9:
+  Test if it's working. It works if you can import MySQLdb.
+
+  $ python
+  >>> import MySQLdb

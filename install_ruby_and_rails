@@ -1,0 +1,15 @@
+Compiling Your Own
+-----------------------
+Instructions here:
+http://hivelogic.com/articles/view/ruby-rails-leopard
+
+Notes:
+As of this writing (06-05-2009), ruby-1.9.1 does not seem to work with the C mysql gem. Using 1.8.7 seems to work.
+
+C MySQL gem
+-----------------------
+i386 version:
+sudo env ARCHFLAGS="-arch i386" gem install mysql -- --with-mysql-include=/usr/local/mysql/include --with-mysql-lib=/usr/local/mysql/lib
+
+x86_64 version:
+sudo env ARCHFLAGS="-arch x86_64" gem install mysql -- --with-mysql-include=/usr/local/mysql/include --with-mysql-lib=/usr/local/mysql/lib
