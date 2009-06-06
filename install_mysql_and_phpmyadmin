@@ -1,0 +1,40 @@
+phpMyAdmin
+-----------------------
+http://www.phpmyadmin.net/home_page/index.php
+
+Apache
+-----------------------
+Virtual Hosts
+  http://mark-kirby.co.uk/2008/setting-up-virtual-hosts-on-os-x-leopard/
+  httpd.conf
+    uncomment LoadModule php5_module libexec/apache2/libphp5.so
+    may change to DocumentRoot "/Users/username/Sites"
+    uncomment Include /private/etc/apache2/extra/httpd-vhosts.conf
+  
+  httpd-vhosts.conf
+    <Virtualhost *:80 >
+    	DocumentRoot "/Users/username/Sites"
+    	ServerName localhost
+    </Virtualhost>
+
+    <VirtualHost *:80>
+        ServerName mywebsite
+        DocumentRoot "/Users/username/Sites/path"
+    </VirtualHost>
+  
+  hosts
+    add 127.0.0.1 mywebsite to the end
+
+Starting and Stopping Apache
+  apachectl -k restart
+  apachectl -k stop
+  apachectl -k start
+  apachectl -k graceful
+  
+MySQL
+-----------------------
+Login:
+  mysql -u root -p
+  
+Create db:
+  create database [databasename];
