@@ -8,6 +8,8 @@ As of this writing (06-05-2009), ruby-1.9.1 does not seem to work with the C mys
 
 C MySQL gem
 -----------------------
+Be sure MySQL is installed!
+
 i386 version:
 sudo env ARCHFLAGS="-arch i386" gem install mysql -- --with-mysql-include=/usr/local/mysql/include --with-mysql-lib=/usr/local/mysql/lib
 
