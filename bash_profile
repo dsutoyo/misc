@@ -1,5 +1,6 @@
 export EDITOR='mate -w'
 export SVN_EDITOR='mate -w'
+export RAILS_ENV=development
 
 # Show Git branch in terminal
 #----------
@@ -36,15 +37,3 @@ alias gr='git rebase'
 # ?
 #----------
 test -r /sw/bin/init.sh && . /sw/bin/init.shm
-
-# Paths
-#----------
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export DISPLAY=:0.0
-
-# MacPorts
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
-
-# Custom path for ruby install
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
