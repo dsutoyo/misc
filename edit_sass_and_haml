@@ -1,0 +1,14 @@
+1. Adding extra space after rule groups
+haml > lib > sass > tree > rule_node.rb line 177
+change:
+to_return << "#{total_rule} {\n#{properties}#{end_props}}#{"\n" if group_end}"
+to:
+to_return << "#{total_rule} {\n#{properties}#{end_props}}\n"
+
+
+2. Add an extra line break for nested properties
+haml > lib > sass > tree > rule_node.rb line 176
+change:
+end_props = (style == :expanded ? "\n" + old_spaces : ' ')
+to:
+end_props = "\n" + old_spaces

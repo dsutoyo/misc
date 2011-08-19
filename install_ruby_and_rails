@@ -10,3 +10,6 @@ sudo gem update
 remove paths from MacPorts
 
 rake au:db:create_cf RAILS_ENV=development
+
+sudo env ARCHFLAGS="-arch x86_64" gem install mysql -- --with-mysql-
+config=/usr/local/mysql/bin/mysql_config

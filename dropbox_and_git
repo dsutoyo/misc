@@ -1,0 +1,26 @@
+http://tumblr.intranation.com/post/766290743/using-dropbox-git-repository
+
+First, create the Git repository in Dropbox (assuming your repository is named myrepo):
+
+cd ~/Dropbox
+mkdir -p repos/myrepo.git
+cd !$
+git --bare init
+And that’s the repository created. Basically we made a bare repository in the Dropbox directory.
+
+Now we can add the new remote to our existing repository (again, assuming it lives at ~/Projects/myrepo).
+
+cd ~/Projects/myrepo
+git remote add dropbox file://$HOME/Dropbox/repos/myrepo.git
+git push dropbox master
+And we’re done. We’ve created the repository, linked a Git remote to it, and pushed the master branch to the repository. This Git repository will now be available on all computers that your Dropbox account is.
+
+Pulling from the repository
+
+When you get to a computer that shares this Dropbox account, but hasn’t checked out Git yet, do as follows:
+
+cd ~/Projects
+git clone -o dropbox file://$HOME/Dropbox/repos/myrepo.git
+Which will add your repository locally, and automatically set up a remote called dropbox which auto–merges with master.
+
+I think this approach could be valuable for things like keeping personal documents or text files in version control (or indeed personal coding projects) without bothering to set up your own Linux box or server. Git really does make these things incredibly easy.
